@@ -1,0 +1,141 @@
+[gd_scene load_steps=2 format=3 uid="uid://2m6aux2ugd2m"]
+
+[ext_resource type="Script" uid="uid://cprp5r5ut6tun" path="res://Scripts/select_save_slot.gd" id="1_smp6e"]
+
+[node name="Save_Select" type="Node2D"]
+
+[node name="Save_Button_Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_smp6e")
+
+[node name="Save_1" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 152.0
+offset_right = 1273.0
+offset_bottom = 183.0
+text = "Save Slot 1"
+
+[node name="Save_2" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 184.0
+offset_right = 1272.0
+offset_bottom = 215.0
+text = "Save Slot 2"
+
+[node name="Save_3" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 216.0
+offset_right = 1271.0
+offset_bottom = 247.0
+text = "Save Slot 3"
+
+[node name="Save_4" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 249.0
+offset_right = 1271.0
+offset_bottom = 280.0
+text = "Save Slot 4"
+
+[node name="Save_5" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 280.0
+offset_right = 1272.0
+offset_bottom = 311.0
+text = "Save Slot 5"
+
+[node name="Save_6" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 310.0
+offset_right = 1272.0
+offset_bottom = 341.0
+text = "Save Slot 6"
+
+[node name="Save_7" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 339.0
+offset_right = 1272.0
+offset_bottom = 370.0
+text = "Save Slot 7"
+
+[node name="Save_8" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 370.0
+offset_right = 1272.0
+offset_bottom = 403.0
+text = "Save Slot 8"
+
+[node name="Save_9" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 403.0
+offset_right = 1272.0
+offset_bottom = 434.0
+text = "Save Slot 9"
+
+[node name="Save_10" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 432.0
+offset_right = 1273.0
+offset_bottom = 463.0
+text = "Save Slot 10"
+
+[node name="Save_11" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 462.0
+offset_right = 1273.0
+offset_bottom = 493.0
+text = "Save Slot 11"
+
+[node name="Save_12" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 493.0
+offset_right = 1273.0
+offset_bottom = 524.0
+text = "Save Slot 12"
+
+[node name="Save_13" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 523.0
+offset_right = 1272.0
+offset_bottom = 554.0
+text = "Save Slot 13"
+
+[node name="Save_14" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 554.0
+offset_right = 1272.0
+offset_bottom = 585.0
+text = "Save Slot 14"
+
+[node name="Save_15" type="Button" parent="Save_Button_Manager"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 583.0
+offset_right = 1272.0
+offset_bottom = 614.0
+text = "Save Slot 15"
+
+[node name="Back_Button" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 92.0
+offset_right = 326.0
+offset_bottom = 130.0
+text = "Back"
+
+[connection signal="button_down" from="Back_Button" to="Save_Button_Manager" method="_on_back_button_button_down"]

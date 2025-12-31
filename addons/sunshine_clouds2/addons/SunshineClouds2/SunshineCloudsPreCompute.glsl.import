@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://crfpk8ta4qxsk"
+path="res://.godot/imported/SunshineCloudsPreCompute.glsl-30317024ee00eecb6b82790009f53f50.res"
+
+[deps]
+
+source_file="res://addons/sunshine_clouds2/addons/SunshineClouds2/SunshineCloudsPreCompute.glsl"
+dest_files=["res://.godot/imported/SunshineCloudsPreCompute.glsl-30317024ee00eecb6b82790009f53f50.res"]
+
+[params]
+

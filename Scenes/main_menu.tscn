@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkrdhj04noxim"]
+
+[ext_resource type="Script" uid="uid://vys1dumklj7m" path="res://Scripts/main_menu.gd" id="1_06t4h"]
+
+[node name="Main_Menu" type="Node2D"]
+script = ExtResource("1_06t4h")
+
+[node name="Button_Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 652.0
+offset_bottom = 320.0
+
+[node name="Start_Game" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 901.0
+offset_top = 259.0
+offset_right = 1171.0
+offset_bottom = 327.0
+text = "Start Game"
+
+[node name="Options" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 932.0
+offset_top = 330.0
+offset_right = 1204.0
+offset_bottom = 393.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 1039.0
+offset_top = 527.0
+offset_right = 1307.0
+offset_bottom = 593.0
+text = "Quit Game"
+
+[node name="Achievements" type="Button" parent="Button_Manager"]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 396.0
+offset_right = 1239.0
+offset_bottom = 461.0
+text = "Achievements"
+
+[node name="Extras" type="Button" parent="Button_Manager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.2791411
+anchor_top = 1.2125
+anchor_right = 1.7130737
+anchor_bottom = 1.4000001
+offset_left = 160.0
+offset_top = 75.0
+offset_right = 160.07593
+offset_bottom = 74.99997
+text = "Extras"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button_Manager/Start_Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Button_Manager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button_Manager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button_Manager/Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="Button_Manager/Extras" to="." method="_on_extras_pressed"]
