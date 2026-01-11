@@ -15,6 +15,10 @@ run/main_scene="uid://dkrdhj04noxim"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveLoad="*res://Scripts/save-load.gd"
+
 [display]
 
 window/size/viewport_width=1366
