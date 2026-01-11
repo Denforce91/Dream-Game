@@ -1,5 +1,7 @@
 class_name Save_Load extends Node
 
+signal swapped(slot : int);
+
 ##THIS FILE CAN BE REMOTELY ACCESSED FROM ANY GDSCRIPT FILE BY USING THE 'SaveLoad' KEYWORD
 #THIS IS A GLOBAL SCRIPT THAT IS ALWAYS ACTIVE AND RUNS ALONGSIDE THE MAIN SCENE TREE
 
@@ -11,12 +13,15 @@ class_name Save_Load extends Node
 var general_data : Dictionary[String, int] = {
 	"TEST" : 0
 };
-var stats : Dictionary[String, int] = {
+var int_data : Dictionary[String, int] = {
 	"TEST" : 0
 };
-var settings : Dictionary[String, String] = {
+var string_data : Dictionary[String, String] = {
 	"TEST" : "TEST"
 };
+var dict_data : Dictionary[String, Dictionary] = {
+	"LAST_PLAYED" : {}
+}
 
 #Variables pertaining to current save slot and the directories of all save slots
 var save_slot : int = 0; #Current save slot number
@@ -45,10 +50,14 @@ func save_data() -> void:
 		for index in data_set:
 			config.set_value(sector, str(index), data_set.get(index));
 	
+	var datetime = Time.get_datetime_dict_from_system();
+	dict_data["LAST_PLAYED"] = datetime;
+	
 	#Each individual dataset dictionary must be included here
 	save_data.call(general_data, "GEN");
-	save_data.call(stats, "STAT");
-	save_data.call(settings, "SETTINGS");
+	save_data.call(int_data, "INT");
+	save_data.call(string_data, "STR");
+	save_data.call(dict_data, "DICT")
 	
 	config.save(selected_save_slot_dir);
 	print("SUCCESSFULLY SAVED!");
@@ -68,17 +77,38 @@ func load_data() -> void:
 	if (result == OK):
 		#Each individual dataset dictionary must be included here
 		general_data = load_data.call(general_data, "GEN");
-		stats = load_data.call(stats, "STAT");
-		settings = load_data.call(settings, "SETTINGS");
+		int_data = load_data.call(int_data, "INT");
+		string_data = load_data.call(string_data, "STR");
+		dict_data = load_data.call(dict_data, "DICT");
 		
-		print("SUCCESSFULLY LOADED!");
+	print("SUCCESSFULLY LOADED!");
 
 
 #Changes the current data slot
 #All for current save file is saved, the save file path is updated,
 #and the all data from the new save file is loaded in its place
-func change_slot(slot : int = 0) -> void:
+func change_slot(new_slot : int = 0) -> void:
 	save_data();
-	save_slot = slot;
-	save_slot_directories[save_slot]
+	print("SWITCH FROM SLOT " + str(save_slot) + " TO " + str(new_slot));
+	save_slot = new_slot;
+	selected_save_slot_dir = save_slot_directories[new_slot]
 	load_data();
+	emit_signal("swapped", new_slot);
+
+#Pulls a dataset dictionary from any save slot without switching to it.
+#Rquires only the dataset sector and save slot id
+func pull_dataset_from_non_active_slot(slot : int, sector : String) -> Dictionary:
+	var path = save_slot_directories[slot]
+	var config = ConfigFile.new();
+	var result = config.load(path);
+
+	var load_data = func(sector : String):
+		var new_dict : Dictionary = {};
+		for index in config.get_section_keys(sector):
+			new_dict[index] = config.get_value(sector, index)
+		return new_dict;
+		
+	if (result == OK):
+		return load_data.call(sector);
+	else:
+		return {};
