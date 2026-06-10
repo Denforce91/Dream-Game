@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://e32qtc3r6hcj"]
+
+[ext_resource type="FontFile" uid="uid://dm41miebqaakx" path="res://UI/Fonts/Elms_Sans/static/ElmsSans-Regular.ttf" id="1_drjrk"]
+
+[resource]
+default_font = ExtResource("1_drjrk")
+default_font_size = 24

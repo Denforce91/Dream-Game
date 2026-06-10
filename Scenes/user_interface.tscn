@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cuqelbwfwx7tk"]
+
+[ext_resource type="Theme" uid="uid://e32qtc3r6hcj" path="res://UI/default_theme.tres" id="2_4d574"]
+[ext_resource type="Script" uid="uid://d18rx8f6wmvwj" path="res://Scripts/clock_label.gd" id="3_uf5wx"]
+[ext_resource type="Script" uid="uid://btd34s0nbgpnf" path="res://Scripts/pause_menu.gd" id="3_v7dfl"]
+
+[node name="User_Interface" type="CanvasLayer" unique_id=1603394045]
+
+[node name="HUD" type="Control" parent="." unique_id=1345492495]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_4d574")
+
+[node name="Date_And_Time" type="Label" parent="HUD" unique_id=449411629]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -281.0
+offset_top = -2.0
+offset_right = -6.0
+offset_bottom = 30.0
+grow_horizontal = 0
+text = "AUGUST 23, 2026 | 8:00"
+script = ExtResource("3_uf5wx")
+
+[node name="Pause_Menu" type="Control" parent="." unique_id=1766047113]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_v7dfl")
+
+[node name="Menu_Options" type="VBoxContainer" parent="Pause_Menu" unique_id=1314171392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -72.0
+offset_right = 34.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="Pause_Menu/Menu_Options" unique_id=442973675]
+layout_mode = 2
+text = "Resume"
+
+[node name="Save" type="Button" parent="Pause_Menu/Menu_Options" unique_id=9223787]
+layout_mode = 2
+text = "Save"
+
+[node name="Load" type="Button" parent="Pause_Menu/Menu_Options" unique_id=1914236815]
+layout_mode = 2
+text = "Load"
+
+[node name="Quit" type="Button" parent="Pause_Menu/Menu_Options" unique_id=1362826916]
+layout_mode = 2
+text = "Quit"

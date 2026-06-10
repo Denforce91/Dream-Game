@@ -26,6 +26,7 @@ func _input(event):
 		camera_mount.rotate_x(deg_to_rad(-event.relative.y*sens_vertical))
 
 func _physics_process(delta: float) -> void:
+	print(str(Engine.get_frames_per_second()));
 	
 	if Input.is_action_pressed("run"):
 		SPEED = running_speed

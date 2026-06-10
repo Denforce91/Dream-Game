@@ -1,58 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkrdhj04noxim"]
+[gd_scene format=3 uid="uid://dkrdhj04noxim"]
 
 [ext_resource type="Script" uid="uid://vys1dumklj7m" path="res://Scripts/main_menu.gd" id="1_06t4h"]
 
-[node name="Main_Menu" type="Node2D"]
+[node name="Main_Menu" type="Node2D" unique_id=1632801785]
 script = ExtResource("1_06t4h")
 
-[node name="Button_Manager" type="Control" parent="."]
+[node name="Button_Manager" type="Control" parent="." unique_id=1859907942]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 652.0
 offset_bottom = 320.0
 
-[node name="Start_Game" type="Button" parent="Button_Manager"]
+[node name="Start_Game" type="Button" parent="Button_Manager" unique_id=228578101]
 layout_mode = 0
-offset_left = 901.0
+offset_left = 856.0
 offset_top = 259.0
-offset_right = 1171.0
+offset_right = 1126.0
 offset_bottom = 327.0
 text = "Start Game"
 
-[node name="Options" type="Button" parent="Button_Manager"]
+[node name="Options" type="Button" parent="Button_Manager" unique_id=2076420475]
 layout_mode = 0
-offset_left = 932.0
+offset_left = 887.0
 offset_top = 330.0
-offset_right = 1204.0
+offset_right = 1159.0
 offset_bottom = 393.0
 text = "Options"
 
-[node name="Quit" type="Button" parent="Button_Manager"]
+[node name="Quit" type="Button" parent="Button_Manager" unique_id=1066459036]
 layout_mode = 0
-offset_left = 1039.0
+offset_left = 994.0
 offset_top = 527.0
-offset_right = 1307.0
+offset_right = 1262.0
 offset_bottom = 593.0
 text = "Quit Game"
 
-[node name="Achievements" type="Button" parent="Button_Manager"]
+[node name="Achievements" type="Button" parent="Button_Manager" unique_id=448142045]
 layout_mode = 0
-offset_left = 964.0
+offset_left = 919.0
 offset_top = 396.0
-offset_right = 1239.0
+offset_right = 1194.0
 offset_bottom = 461.0
 text = "Achievements"
 
-[node name="Extras" type="Button" parent="Button_Manager"]
+[node name="Extras" type="Button" parent="Button_Manager" unique_id=2068068565]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.2791411
 anchor_top = 1.2125
 anchor_right = 1.7130737
 anchor_bottom = 1.4000001
-offset_left = 160.0
+offset_left = 115.0
 offset_top = 75.0
-offset_right = 160.07593
+offset_right = 115.07593
 offset_bottom = 74.99997
 text = "Extras"
 metadata/_edit_use_anchors_ = true

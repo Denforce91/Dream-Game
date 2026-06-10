@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bo6asfjk3ytfc"]
+[gd_scene format=3 uid="uid://bo6asfjk3ytfc"]
 
 [ext_resource type="Texture2D" uid="uid://ctwpclf5mk321" path="res://Textures/grass-channel-alb-ht.dds" id="1_qxrlw"]
+[ext_resource type="Script" uid="uid://b6r1q6ke1vbte" path="res://Scripts/date_and_time.gd" id="1_wowpa"]
 [ext_resource type="Texture2D" uid="uid://0qyfj5tb1dns" path="res://Textures/grass-nm.dds" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://3dehcfuldc30" path="res://Scenes/third_person_player.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://cuqelbwfwx7tk" path="res://Scenes/user_interface.tscn" id="4_3dryh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxrlw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,68 +21,6 @@ glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.45438868, 0.47450215, 0.4670061, 1)
 fog_density = 0.0
-
-[sub_resource type="Animation" id="Animation_wrm1d"]
-resource_name = "DayNightCycle"
-length = 12.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 12),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.5707964, -2.5935593, -1.2042772), Vector3(4.712389, -2.5935593, -1.2042772)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3, 9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.0, 0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_3dryh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.5707964, -2.5935593, -1.2042772)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
-_data = {
-&"DayNightCycle": SubResource("Animation_wrm1d"),
-&"RESET": SubResource("Animation_3dryh")
-}
 
 [sub_resource type="Gradient" id="Gradient_2poj3"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -156,22 +96,18 @@ detiling_shift = 0.817
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_wowpa")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_3dryh")])
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=31840044]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1384507345]
 environment = SubResource("Environment_3dryh")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.79228956, -0.6101451, 2.2774055e-08, 4.0808093e-08, -1.566476e-08, 1, -0.6101451, 0.79228956, 3.730989e-08, 0, 2668.1338, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=611886042 groups=["calendar_sun"]]
+process_mode = 3
+transform = Transform3D(-0.7922895, -0.6101451, 2.2774055e-08, 4.0808093e-08, -1.566476e-08, 1, -0.6101451, 0.7922895, 3.730989e-08, 0, 2668.1338, 0)
 shadow_enabled = true
+script = ExtResource("1_wowpa")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalLight3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_wowpa")
-}
-autoplay = "DayNightCycle"
-
-[node name="Terrain3D" type="Terrain3D" parent="."]
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=574360726]
 data_directory = "res://Terrain3D/"
 material = SubResource("Terrain3DMaterial_wrm1d")
 assets = SubResource("Terrain3DAssets_i6g32")
@@ -179,7 +115,9 @@ show_instancer_grid = true
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="ThirdPersonPlayer" parent="." instance=ExtResource("3_wrm1d")]
+[node name="ThirdPersonPlayer" parent="." unique_id=156799871 instance=ExtResource("3_wrm1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1141.9323, 0.028185785, -1271.8254)
 sens_horizontal = 0.1
 sens_vertical = 0.1
+
+[node name="User_Interface" parent="." unique_id=1603394045 instance=ExtResource("4_3dryh")]
