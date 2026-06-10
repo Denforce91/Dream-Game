@@ -1,0 +1,10 @@
+
+# Godot 4.6 core cache and imports
+.godot/
+
+.godot/editor/
+
+# Exported binaries and templates
+*.translation
+android/
+build/
