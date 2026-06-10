@@ -6,15 +6,15 @@ extends CharacterBody3D
 var SPEED : float = 2.8
 var JUMP_VELOCITY : float = 4.5
 
-var running = false
+var running : bool = false;
 
-var walking_speed = 3.0
-var running_speed = 5.0
+var walking_speed : float = 3.0
+var running_speed : float = 5.0
 
 @onready var camera_mount: Node3D = $Camera_Mount
 
-@export var sens_horizontal = 0.3
-@export var sens_vertical = 0.3
+@export var sens_horizontal : float = 0.3
+@export var sens_vertical : float = 0.3
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
