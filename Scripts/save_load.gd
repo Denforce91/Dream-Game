@@ -1,4 +1,4 @@
-class_name Save_Load extends Node
+class_name Save_Load extends Node;
 
 signal swapped(slot : int);
 
@@ -9,7 +9,9 @@ signal swapped(slot : int);
 #Unfortunately when new values are added to the lists, then all prior save files will be corrupted,
 #meaning that you will have to delete them after every update or else the game will crash. The location
 #where the save files are kept differs across operating systems and versions, meaning that you'll 
-#have to go find the location manually to delete them. -Q
+#have to go find the location manually to delete them. Alternatively you could manually add or fix
+#any missing values in the save files individually, though this only occasionally ends up being worht
+#the effort. -Q
 var general_data : Dictionary[String, int] = {
 	"TEST" : 0
 };

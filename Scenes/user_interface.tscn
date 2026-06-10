@@ -30,7 +30,7 @@ text = "AUGUST 23, 2026 | 8:00"
 script = ExtResource("3_uf5wx")
 
 [node name="Pause_Menu" type="Control" parent="." unique_id=1766047113]
-process_mode = 2
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
